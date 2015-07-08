@@ -13,6 +13,13 @@ public abstract class Ship : MonoBehaviour
 
 
 	/**
+	 * The fire delay
+	 * You can only fire one time every fireDelay seconds
+	 */
+	public float fireDelay = 1f;
+
+
+	/**
 	 * The ship will collide with objects of the given tag
 	 */
 	public Enum.Tags collideWith;
@@ -38,6 +45,12 @@ public abstract class Ship : MonoBehaviour
 			}
 		}
 	}
+
+
+	/**
+	 * The the next time the ship can fire a missile
+	 */
+	protected float nextFire = 0f;
 
 
 	/**
@@ -87,9 +100,14 @@ public abstract class Ship : MonoBehaviour
 	}
 
 
-
 	/**
 	 * Is automaticly called if the ship is destroied
 	 */
 	protected abstract void Destroy();
+
+
+	/**
+	 * Resets the ships values
+	 */
+	protected abstract void Reset();
 }

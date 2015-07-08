@@ -73,7 +73,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97056ca757805402dba7ab1521b507cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 2
+  lifetime: 10
 --- !u!135 &13504284
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -99,7 +100,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: f3c585ef22a444fda8fee513d6aa9ed4, type: 2}
     - target: {fileID: 0}
       propertyPath: speed
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TagString
@@ -108,6 +109,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: lifetime
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

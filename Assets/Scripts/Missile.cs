@@ -12,6 +12,12 @@ public class Missile : MonoBehaviour, IObjectPoolEntity
 	public float speed = 1f;
 
 
+	/**
+	 * The missiles lifetime
+	 */
+	public float lifetime = 1f;
+
+
 
 	/**
 	 * Activates the missile
@@ -20,6 +26,7 @@ public class Missile : MonoBehaviour, IObjectPoolEntity
 	{
 		this.transform.position = spawnPosition;
 		this.gameObject.SetActive(true);
+		this.Invoke("Deactivate", this.lifetime);
 	}
 
 
@@ -28,6 +35,7 @@ public class Missile : MonoBehaviour, IObjectPoolEntity
 	 */
 	public void Deactivate()
 	{
+		this.CancelInvoke();
 		this.gameObject.SetActive(false);
 	}
 

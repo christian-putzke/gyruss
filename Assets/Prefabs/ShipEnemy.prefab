@@ -90,8 +90,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
+  fireDelay: 3
   collideWith: 0
   _life: 1
+  score: 100
+  maxFireDelay: 5
 --- !u!135 &13546716
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -9,6 +9,8 @@ public class Enum
 	public enum Tags
 	{
 		MissilePlayer,
-		MissileEnemy
+		MissileEnemy,
+		MissileEnemyObjectPool,
+		Player
 	}
 }

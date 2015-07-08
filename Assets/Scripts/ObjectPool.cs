@@ -62,6 +62,25 @@ public class ObjectPool : MonoBehaviour
 
 
 	/**
+	 * Returns the amount if active object pool entities
+	 */
+	public int GetActiveObjectPoolEntityAmount()
+	{
+		var activeObjectPoolEntityAmount = 0;
+
+		for (var index = 0; index < this.objectPool.Count; index ++)
+		{
+			if (this.objectPool[index].IsActive())
+			{
+				activeObjectPoolEntityAmount ++;
+			}
+		}
+		
+		return activeObjectPoolEntityAmount;
+	}
+
+
+	/**
 	 * Adds a new object pool entity to the object pool and returns it
 	 */
 	private IObjectPoolEntity AddObjectPoolEntity()
