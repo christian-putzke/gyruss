@@ -27,37 +27,15 @@ public abstract class Ship : MonoBehaviour
 
 	/**
 	 * The ships life amount
-	 * If the life is reduced to 0 the ship will be destroyed
 	 */
-	public int life
-	{
-		get
-		{
-			return this._life;
-		}
-		set
-		{
-			this._life = value;
-
-			if (this._life <= 0)
-			{
-				this.Destroy();
-			}
-		}
-	}
+	[SerializeField]
+	protected int life = 0;
 
 
 	/**
 	 * The the next time the ship can fire a missile
 	 */
 	protected float nextFire = 0f;
-
-
-	/**
-	 * The interal ship life counter
-	 */
-	[SerializeField]
-	private int _life = 1;
 
 
 	/**
@@ -93,11 +71,16 @@ public abstract class Ship : MonoBehaviour
 			if (missile != null)
 			{
 				missile.Deactivate();
-
-				this.life --;
+				this.ReduceLife();
 			}
 		}
 	}
+
+
+	/**
+	 * Reduces the ships life
+	 */
+	protected abstract void ReduceLife();
 
 
 	/**

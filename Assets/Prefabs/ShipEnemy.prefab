@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &469202
 Transform:
   m_ObjectHideFlags: 1
@@ -89,12 +89,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634eaa0121f9f4bf289fd3810c71a0ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
-  fireDelay: 3
+  speed: 75
+  fireDelay: 1
   collideWith: 0
-  _life: 1
-  score: 100
-  maxFireDelay: 5
+  life: 1
+  score: 1000
+  maxFireDelay: 3
 --- !u!135 &13546716
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -141,6 +141,30 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_UseGravity
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: fireDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxFireDelay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: score
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: life
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: speed
+      value: 75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -48,12 +48,17 @@ public class Enemy : Ship, IObjectPoolEntity
 	 */
 	private void Update()
 	{
-		if (this.IsActive() && this.nextFire <= Time.time)
+		if (this.IsActive())
 		{
-			var missileEnemy = (MissileEnemy) this.missileEnemyObjectPool.GetObjectPoolEntity();
-			missileEnemy.SetTarget(this.missileTargetObject.transform.position);
-			missileEnemy.Activate(this.transform.position);
-			this.CalculateNextFireTime();
+			if (this.nextFire <= Time.time)
+			{
+				var missileEnemy = (MissileEnemy) this.missileEnemyObjectPool.GetObjectPoolEntity();
+				missileEnemy.SetTarget(this.missileTargetObject.transform.position);
+				missileEnemy.Activate(this.transform.position);
+				this.CalculateNextFireTime();
+			}
+
+			this.RotateAround(this.rotateLeftAxis);
 		}
 	}
 
@@ -73,6 +78,7 @@ public class Enemy : Ship, IObjectPoolEntity
 	public void Activate(Vector3 spawnPosition)
 	{
 		this.CalculateNextFireTime();
+		this.transform.position = spawnPosition;
 		this.gameObject.SetActive(true);
 	}
 
@@ -96,14 +102,31 @@ public class Enemy : Ship, IObjectPoolEntity
 
 
 	/**
+	 * Reduce the enemies lifes
+	 */
+	protected override void ReduceLife()
+	{
+		// TODO: Add hit vfx
+
+		this.life --;
+		if (this.life == 0)
+		{
+			this.Destroy();
+		}
+	}
+
+
+	/**
 	 * Destroies the enemies ship
 	 */
 	protected override void Destroy()
 	{
+		// TODO: Add destroy vfx
+
+		Game.AddScore(this.score);
+
 		this.Deactivate();
 		this.Reset();
-
-		// TODO: Notify the game that the player gained score points
 	}
 
 
@@ -112,6 +135,6 @@ public class Enemy : Ship, IObjectPoolEntity
 	 */
 	protected override void Reset()
 	{
-		this.life = 1; // TODO: remove hardcoded life reset
+		this.life = 1; // TODO: replace hardcoded life reset
 	}
 }

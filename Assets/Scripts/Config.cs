@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 /**
- * The config class contains
+ * The config class contains general config values
  */
 public class Config
 {

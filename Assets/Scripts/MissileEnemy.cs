@@ -20,7 +20,7 @@ public class MissileEnemy : Missile
 	{
 		// Increase the distance to the target by 100 so it will go through the origin targets position
 		// and further until the lifetime is reached
-		this.target = target * 100;
+		this.target = target * 100f;
 	}
 
 

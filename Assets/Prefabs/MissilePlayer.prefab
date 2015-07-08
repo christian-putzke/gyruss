@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd5217d7395ff40b49bb2016360175ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 4
   lifetime: 10
 --- !u!135 &13504284
 SphereCollider:
@@ -100,7 +100,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 8ca3cdd828c244fa184f41a4f5e70346, type: 2}
     - target: {fileID: 0}
       propertyPath: speed
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TagString

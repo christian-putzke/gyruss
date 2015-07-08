@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 /**
  * The object pool class handles the object pool of the the given prefab
+ * TODO: Add reset methods so the game can easily end 
  */
 public class ObjectPool : MonoBehaviour
 {

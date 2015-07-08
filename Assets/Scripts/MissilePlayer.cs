@@ -7,7 +7,7 @@ using System.Collections;
 public class MissilePlayer : Missile
 {
 	/**
-	 * Handles the missiles movement
+	 * Handles the players missile movement
 	 */
 	private void Update ()
 	{

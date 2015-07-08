@@ -7,6 +7,13 @@ using System.Collections;
 public class Player : Ship
 {
 	/**
+	 * The players spawn position
+	 */
+	[SerializeField]
+	private Vector3 spawnPosition;
+
+
+	/**
 	 * The missile object pool component
 	 */
 	private ObjectPool missileObjectPool;
@@ -65,10 +72,27 @@ public class Player : Ship
 
 
 	/**
+	 * Reduce the players lifes
+	 */
+	protected override void ReduceLife()
+	{
+		// TODO: Add hit vfx
+
+		this.life --;
+		Game.SetLifesUI(this.life);
+		if (this.life == 0)
+		{
+			this.Destroy();
+		}
+	}
+
+
+	/**
 	 * Destroies the players ship
 	 */
 	protected override void Destroy()
 	{
+		// TODO: Add destroy vfx
 		this.Deactivate();
 	}
 
@@ -78,6 +102,8 @@ public class Player : Ship
 	 */
 	protected override void Reset()
 	{
-		this.life = 5; // TODO: remove hardcoded life reset
+		this.transform.position = this.spawnPosition;
+		this.life = 5; // TODO: replace hardcoded life reset
+		Game.SetLifesUI(this.life);
 	}
 }
