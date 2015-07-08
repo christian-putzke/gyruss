@@ -7,6 +7,22 @@ using System.Collections;
 public class Player : Ship
 {
 	/**
+	 * The missile object pool component
+	 */
+	private ObjectPool missileObjectPool;
+
+
+
+	/**
+	 * Grep and cache needed components
+	 */
+	private void Start()
+	{
+		this.missileObjectPool = this.GetComponent<ObjectPool>();
+	}
+
+
+	/**
 	 * Handles the player inputs
 	 */
 	private void Update ()
@@ -18,6 +34,12 @@ public class Player : Ship
 		else if (Input.GetKey(KeyCode.LeftArrow))
 		{
 			this.RotateAround(this.rotateLeftAxis);
+		}
+
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			var objectPoolEntity = this.missileObjectPool.GetObjectPoolEntity();
+			objectPoolEntity.Activate(this.transform.position);
 		}
 	}
 

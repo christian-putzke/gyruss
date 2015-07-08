@@ -47,7 +47,7 @@ public class ObjectPool : MonoBehaviour
 	 * Returns a "free" object pool entity
 	 * Creates new object pool entities on the fly
 	 */
-	public IObjectPoolEntity GetObject()
+	public IObjectPoolEntity GetObjectPoolEntity()
 	{
 		for (var index = 0; index < this.objectPool.Count; index ++)
 		{

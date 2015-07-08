@@ -8,7 +8,7 @@ public interface IObjectPoolEntity
 	/**
 	 * Activates the object pool entity
 	 */
-	void Activate();
+	void Activate(Vector3 spawnPosition);
 
 	/**
 	 * Deactivates the object pool entity

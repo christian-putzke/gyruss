@@ -13,6 +13,12 @@ public abstract class Ship : MonoBehaviour
 
 
 	/**
+	 * The ship will collide with objects of the given tag
+	 */
+	public Enum.Tags collideWith;
+
+
+	/**
 	 * The ships life amount
 	 * If the life is reduced to 0 the ship will be destroyed
 	 */
@@ -26,7 +32,7 @@ public abstract class Ship : MonoBehaviour
 		{
 			this._life = value;
 
-			if (this._life == 0)
+			if (this._life <= 0)
 			{
 				this.Destroy();
 			}
@@ -59,8 +65,27 @@ public abstract class Ship : MonoBehaviour
 	 */
 	protected void RotateAround(Vector3 rotateAxis)
 	{
-		this.transform.RotateAround(Vector3.zero, rotateAxis, Time.deltaTime * this.speed);
+		this.transform.RotateAround(Config.screenCenter, rotateAxis, Time.deltaTime * this.speed);
 	}
+
+
+	/**
+	 * Handles collision of a missile with the ship
+	 */
+	private void OnTriggerEnter(Collider collider)
+	{
+		if (collider.CompareTag(this.collideWith.ToString()))
+		{
+			var missile = collider.GetComponent<Missile>();
+			if (missile != null)
+			{
+				missile.Deactivate();
+
+				this.life --;
+			}
+		}
+	}
+
 
 
 	/**
